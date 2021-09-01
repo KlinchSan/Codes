@@ -1,0 +1,13 @@
+class Solution:
+    def twoSum(self, nums, target):
+        sorted_nums = list(sorted(nums))
+        first_index = 0
+        last_index = len(sorted_nums) - 1
+        for i in range(len(sorted_nums)):
+            if sorted_nums[first_index] + sorted_nums[last_index] == target:
+                List = [sorted_nums[first_index], sorted_nums[last_index]]
+            elif sorted_nums[first_index] + sorted_nums[last_index] < target:
+                first_index += 1
+            else:
+                last_index -= 1
+        return([nums.index(List[0]), len(nums) - nums[::-1].index(List[1]) - 1])
